@@ -42,6 +42,40 @@ export function getStaticPaths() {
       ]
     },
     {
+      id: 'RV', // Esta será la URL: tusitio.com/proyecto/app-ia
+      titulo: 'Simulador de alimentar palomas',
+      categoria: 'Programación y RV',
+      descripcion: 'En una asignatura de Realidad Virtual se nos encargó montar un entorno de Unity con funcionalidades personalizadas para ser usado con unas gafas de RV. Mis compañeros y yo optamos por un parque en el que tu personaje alimenta a las palomas con pan. Nos encargamos de diseñar algunos modelos 3D y de programar el entorno. Además incorporamos una animación hecha con Motion Capture en un laboratorio de nuestra facultad.',
+      enlaceRepo: 'https://github.com/dcabmar/VR_Pidgeon_Feeding/tree/main',
+      //enlaceDemo: '#',
+      galeria: [
+        { tipo: 'imagen', url: 'https://bristolpests.co.uk/media/shutterstock_1153933432-scaled.jpg' }
+      ]
+    },
+    {
+      id: 'FR', // Esta será la URL: tusitio.com/proyecto/app-ia
+      titulo: 'Reconocimiento Facial',
+      categoria: 'Programación e IA',
+      descripcion: 'En tercero de carrera desarrollamos varios sistemas de reconocimiento facial para la asignatura de Imagen y Video digital. Estos hacían uso de modelos de aprendizaje para poder identificar correctamente los rostros. Para entrenar el algoritmo usamos fotos de youtubers e influencers, además de algunas nuestras. Así conseguimos un sistema que reconoce caras en fotos, otro en videos y uno en tiempo real; haciendo uso de una webcam.',
+      enlaceRepo: 'https://github.com/dcabmar/Facial_Recognition',
+      //enlaceDemo: '#',
+      galeria: [
+        { tipo: 'imagen', url: 'https://res.cloudinary.com/dzjo5zpmz/image/upload/v1775046103/FR1_ilujjn.avif' },
+        { tipo: 'imagen', url: 'https://res.cloudinary.com/dzjo5zpmz/image/upload/v1775046103/FR2_vivkro.avif' }
+      ]
+    },
+    {
+      id: 'Voz', // Esta será la URL: tusitio.com/proyecto/app-ia
+      titulo: 'Resonance',
+      categoria: 'Programación y Diseño Web',
+      descripcion: 'En tercero de carrera, para la asignatura de voz y audio digital, desarrollé una pagina web que aplica efectos a una grabación de audio. Gracias a una librería de JavaScript, pude recrear los efectos de chorus, reverb y eco. Además compuse unas bases para poder improvisar encima de ellas.',
+      enlaceRepo: 'https://github.com/dcabmar/Pryct_VOZ/tree/main',
+      //enlaceDemo: '#',
+      galeria: [
+        { tipo: 'imagen', url: 'https://res.cloudinary.com/dzjo5zpmz/image/upload/v1775054975/Resonance_ht6kwv.avif' }
+      ]
+    },
+    {
       id: 'spot-publicitario', // URL: tusitio.com/proyecto/spot-publicitario
       titulo: 'Spot Publicitario Interactivo',
       categoria: 'Multimedia',
@@ -103,11 +137,16 @@ const { proyecto } = Astro.props;
             <div class="flex overflow-x-auto gap-6 snap-x snap-mandatory pb-4 scrollbar-hide">
                 
                 {proyecto.galeria?.map((media) => (
-                    <div class="snap-center shrink-0 w-full md:w-[80%] aspect-video rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black flex items-center justify-center">
+                    <div class="snap-center shrink-0 w-full md:w-[80%] aspect-video rounded-xl overflow-hidden border border-white/10 shadow-lg flex items-center justify-center">
                         
                         {/* 1. Si es una IMAGEN */}
                         {media.tipo === 'imagen' && (
-                            <img src={media.url} class="w-full h-full object-contain" alt={`Captura de ${proyecto.titulo}`} />
+                            <div class="relative w-full h-full flex items-center justify-center overflow-hidden bg-slate-900">
+                                {/* Imagen de fondo borrosa */}
+                                <img src={media.url} class="absolute inset-0 w-full h-full object-cover blur-xl opacity-40 scale-110" aria-hidden="true" />
+                                {/* Imagen real nítida */}
+                                <img src={media.url} class="relative z-10 w-full h-full object-contain drop-shadow-2xl" alt={`Captura de ${proyecto.titulo}`} />
+                            </div>
                         )}
 
                         {/* 2. Si es un VÍDEO PURO (.mp4) */}
