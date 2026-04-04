@@ -113,6 +113,44 @@ export function getStaticPaths() {
       ]
     },
     {
+      id: 'TFG', // Esta será la URL: tusitio.com/proyecto/app-ia
+      titulo: 'MELO-BLOB',
+      categoria: 'Programación, Diseño y Multimedia',
+      descripcion: 'He aquí mi Trabajo de Fin de Grado. Melo-Blob es un híbrido entre videojuego musical y aplicación para entrenamiento cognitivo el cual diseñé usando los programas Unity, Reaper y Pixelorama. Para saber más detalles os dejo un video que hice con IA explicando el proceso de creación del proyecto. También teneis un enlace al resultado final por si quereis probarlo.',
+      enlaceRepo: 'https://github.com/dcabmar/MELOBLOB-TFG',
+      enlaceDemo: 'https://danix3000.itch.io/meloblob',
+      galeria: [
+        { tipo: 'youtube', url: 'https://www.youtube.com/embed/2hE8D6xRy4I?si=qFMMx5VuJaMv2N3Z' }
+      ]
+    },
+    {
+      id: 'ML', // Esta será la URL: tusitio.com/proyecto/app-ia
+      titulo: 'Loan Payback Prediction',
+      categoria: 'Data Science y Machine Learning',
+      descripcion: 'Uno de mis primeros proyectos del Master. Utilicé Machine Learning para crear un modelo capaz de predecir si los clientes de un banco iban a ser capaces de devolver un préstamo. Apliqué mis nuevos conocimientos de Data Science y Big Data para analizar un gran volumen de datos, filtrarlos y extraer tanto características como correlaciones entre estos. Posteriormente, diseñamos en equipo un pipeline que entrenaba y comparaba distintos tipos de modelos de ML para ver cuál daba mejores resultados.',
+      // enlaceRepo: 'https://github.com/dcabmar/MELOBLOB-TFG',
+      // enlaceDemo: 'https://danix3000.itch.io/meloblob',
+      galeria: [
+        { tipo: 'imagen', url: 'https://res.cloudinary.com/dzjo5zpmz/image/upload/v1775336342/ML1_mygsqn.png' },
+        { tipo: 'imagen', url: 'https://res.cloudinary.com/dzjo5zpmz/image/upload/v1775336342/ML2_vsyrmy.png' },
+        { tipo: 'imagen', url: 'https://res.cloudinary.com/dzjo5zpmz/image/upload/v1775336342/ML3_vxdqyu.png' }
+      ]
+    },
+    {
+      id: 'DL', // Esta será la URL: tusitio.com/proyecto/app-ia
+      titulo: 'Urban Audio Classificator',
+      categoria: 'Data Science y Deep Learning',
+      descripcion: 'Utilizando mis nuevos conocimientos de Deep Learning desarrollé un clasificador de sonidos urbanos. Diseñé dos Redes Neuronales para clasificar los fragmentos de audio, con el objetivo de compararlas y ver qué estrategia es mejor. El proceso consistió en normalizar los archivos de audio, crear los espectrogramas de cada uno, diseñar los modelos, entrenarlos y compararlos. En este proyecto compitieron una Red Convolucional (CNN) creada desde cero y otra red que usaba Transfer Learning.',
+      // enlaceRepo: 'https://github.com/dcabmar/MELOBLOB-TFG',
+      // enlaceDemo: 'https://danix3000.itch.io/meloblob',
+      galeria: [
+        { tipo: 'imagen', url: 'https://res.cloudinary.com/dzjo5zpmz/image/upload/v1775336875/DL2_kf9nql.png' },
+        { tipo: 'imagen', url: 'https://res.cloudinary.com/dzjo5zpmz/image/upload/v1775336876/DL3_r89vuf.png' },
+        { tipo: 'imagen', url: 'https://res.cloudinary.com/dzjo5zpmz/image/upload/v1775336876/DL1_lj7xsm.png' },
+        { tipo: 'imagen', url: 'https://res.cloudinary.com/dzjo5zpmz/image/upload/v1775336876/DL4_omyuiy.png' }
+      ]
+    },
+    {
       id: 'spot-publicitario', // URL: tusitio.com/proyecto/spot-publicitario
       titulo: 'Spot Publicitario Interactivo',
       categoria: 'Multimedia',
@@ -162,7 +200,7 @@ const { proyecto } = Astro.props;
                 
                 {proyecto.enlaceDemo && (
                     <a href={proyecto.enlaceDemo} target="_blank" class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-white font-medium rounded-lg border border-slate-700 transition-colors">
-                        Ver Proyecto Vivo
+                        Ver Proyecto
                     </a>
                 )}
             </div>
